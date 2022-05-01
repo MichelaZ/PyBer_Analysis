@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 ```
-2. I load data from csv’s into DataFrames.
+2. I loaded data from csv’s into DataFrames.
 ```
 # File to Load (Remember to change these)
 city_data_to_load = "Resources/city_data.csv"
@@ -61,11 +61,13 @@ pyber_summary_df["Average Fare per Driver"] = pyber_summary_df["Average Fare per
 ![ PyBer summary DataFrame](https://github.com/MichelaZ/PyBer_Analysis/blob/main/Resources/pyber_sum.png)
  
 ##### Urban Cities: 
-Urban cities have the most drivers, rides, and make the most total fares. They have the lowest average fares per ride and driver. 
-I would have liked to see some data on duration of the ride. Cities are more densely populated so places are closer together, so I suspect the mileage and fare per ride to be lower. They also probably have to drive less between fares than suburban or rural drivers. **However, if the driver is stuck in traffic the mileage might not be an accurate measure of value for the driver’s time.** I think this could also be an issue in suburban cities too.
+Urban cities have the most drivers, rides, and make the most total fares. They have the lowest average fares per ride and driver. See the data above.
+I would have liked to see some data on duration of the ride. Cities are more densely populated so places are closer together, so I suspect the mileage and fare per ride to be lower. They also probably have to drive less between fares than suburban or rural drivers. **However, if the driver is stuck in traffic the mileage might not be an accurate measure of value for the driver’s time.** This could also be an issue in suburban cities too. 
+
 *It would be interesting to see if there are areas in each city where rides are originating.* Then do some research on why this might be. Maybe there are a lot of rides originating in high income neighborhoods, but few in lower income ones. To offset this, you could increase the fare rate in higher income neighborhoods and lower them in more impoverished ones to make them more accessible. Although drivers might have less incentive to service lower income neighborhoods for a lower fare rate, so this could also lead to issues.
 ##### Suburban Cities:
-Suburban cities are in the middle for all data metrics. This makes sense they are less densely populated than cities, but more so than rural ones. They tend to be more car dependent than urban areas, but there is usually more access to public transport than rural areas. This is probably partially because things are more spread out.
+Suburban cities are in the middle for all data metrics, see the table above. This makes sense they are less densely populated than cities, but more so than rural ones. They tend to be more car dependent than urban areas, but there is usually more access to public transport than rural areas. This is probably partially because things are more spread out.
+
 Looking into the availability of public transport in suburban cities would help to determine how to improve accessibility. Look for times of the day or days of the week when the public transportation system isn’t operating or is inadequate for supply and demand. You could advertise more heavily during these times. If you are looking for more money you could raise prices during these times. **If your goal is accessibility, you could lower the price during times when the public transportation system is inadequate and increase the prices when public transport is available.** I think you would have less issues with drivers. The drivers who drive full time will make a higher rate during the day. Assuming the public transportation system has less availability in the evening and weekends there will most likely be more ride requests during these times and your drivers who work elsewhere will have more availability during these times. You would want some further data to back that up.
 ##### Rural Cities: 
 Rural cities have the least number of drivers (2.6%), rides(5.3%), and fares(6.8%). Rural areas tend to be more car dependent and by definition are less densely populated.  The U.S. Economic Research Services states the following:
@@ -159,7 +161,7 @@ ax.xaxis.set_major_formatter(dates.DateFormatter('%b'))
 legend = df.columns
 ax.legend(legend, title="type")
 ```
--  To wrap things up I changed the figure size and changed the legend position. With the loc set to zero it was on the upper left of the chart, but I prefer the upper right so I set it to 7. Setting loc to 10 would put it in center like on the reference image.
+-  To wrap things up I changed the figure size and changed the legend position. Setting loc to 10 would put it in center like on the reference image.
 ```
 fig, ax = plt.subplots()
 ax.plot(df)
@@ -185,7 +187,7 @@ plt.show()
 ![ matplot chart.](https://github.com/MichelaZ/PyBer_Analysis/blob/main/Resources/PyBer_fare_summary3.png)
 
 ## Deliverable 2: Results
-I don’t know if there is enough data to make this chart particularly useful I don’t know if the there is enough data over a long enough period of time. It does look like there might be a slight increase in in rides for urban cities, but not in rural or suburban ones. So maybe the number of available drivers is limiting the ability for growth in these regions. I would do some analysis on the drivers per capita. I would also increase advertising in rural and suburban cities both for recruitment and customers.
+I don’t know if the there is enough data over a long enough period of time for this chart to be particularly useful. It does look like there might be a slight increase in in rides for urban cities, but not in rural or suburban ones. So maybe the number of available drivers is limiting the ability for growth in these regions. I would do some analysis on the drivers per capita. I would also increase advertising in rural and suburban cities both for recruitment and customers.
 
 ## Recommendation Summary: 
 - Do further research into population, demographics (of cities, drivers, and riders), public transportation systems, length of rides in minutes, and average mileage per ride.
