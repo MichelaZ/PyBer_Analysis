@@ -2,7 +2,7 @@
 ## Purpose:
 The client wants a DataFrame to summarize data from a ride-sharing app, PyBer, by city type: urban, suburban, and rural. Using the DataFrame I created a chart showing the weekly fares for each city type and was able to analyze the data to help the client determine how city type effects the average fare. Then I gave recommendations to improve access and affordability based on this data.
 ## Deliverable 1: Method
-1. I import dependencies.
+1. I imported dependencies.
 ```
 # Add Matplotlib inline magic command
 %matplotlib inline
@@ -60,16 +60,16 @@ pyber_summary_df["Average Fare per Driver"] = pyber_summary_df["Average Fare per
 ## Deliverable 1: Results
 ![ PyBer summary DataFrame](https://github.com/MichelaZ/PyBer_Analysis/blob/main/Resources/pyber_sum.png)
  
-##### Urban Cities: 
+#### Urban Cities: 
 Urban cities have the most drivers, rides, and make the most total fares. They have the lowest average fares per ride and driver. See the data above.
 I would have liked to see some data on duration of the ride. Cities are more densely populated so places are closer together, so I suspect the mileage and fare per ride to be lower. They also probably have to drive less between fares than suburban or rural drivers. **However, if the driver is stuck in traffic the mileage might not be an accurate measure of value for the driver’s time.** This could also be an issue in suburban cities too. 
 
 *It would be interesting to see if there are areas in each city where rides are originating.* Then do some research on why this might be. Maybe there are a lot of rides originating in high income neighborhoods, but few in lower income ones. To offset this, you could increase the fare rate in higher income neighborhoods and lower them in more impoverished ones to make them more accessible. Although drivers might have less incentive to service lower income neighborhoods for a lower fare rate, so this could also lead to issues.
-##### Suburban Cities:
+#### Suburban Cities:
 Suburban cities are in the middle for all data metrics, see the table above. This makes sense they are less densely populated than cities, but more so than rural ones. They tend to be more car dependent than urban areas, but there is usually more access to public transport than rural areas. This is probably partially because things are more spread out.
 
 Looking into the availability of public transport in suburban cities would help to determine how to improve accessibility. Look for times of the day or days of the week when the public transportation system isn’t operating or is inadequate for supply and demand. You could advertise more heavily during these times. If you are looking for more money you could raise prices during these times. **If your goal is accessibility, you could lower the price during times when the public transportation system is inadequate and increase the prices when public transport is available.** I think you would have less issues with drivers. The drivers who drive full time will make a higher rate during the day. Assuming the public transportation system has less availability in the evening and weekends there will most likely be more ride requests during these times and your drivers who work elsewhere will have more availability during these times. You would want some further data to back that up.
-##### Rural Cities: 
+#### Rural Cities: 
 Rural cities have the least number of drivers (2.6%), rides(5.3%), and fares(6.8%). Rural areas tend to be more car dependent and by definition are less densely populated.  The U.S. Economic Research Services states the following:
 
 > Overall, 92.7 percent of rural households had access to a car in 2000, compared with 88.9 percent of urban households. 
@@ -80,7 +80,7 @@ An additional data point that would be beneficial to examine is the average trip
 
 > According to the U.S. Census Bureau, the 2016 official poverty rate in rural areas was almost 16 percent compared to just over 12 percent in urban areas. 
 
-More then 1,000,000 Americans in rural households do not have access to a car. Compared to urban residents, rural residents have much less access to public transportation. Only 60% of rural counties have a public transportation system and 28% of them only service one city. Most users of rural public transport systems are female, elderly, and/or disabled. Although, the majority of carless households are in urban areas, the majority of the counties with over 10% carelessness are in rural counties where Black, Hispanic, or Native American residents make up a higher percentage of the population. 
+More then 1,000,000 Americans in rural households do not have access to a car (R. Bellis). Compared to urban residents, rural residents have much less access to public transportation. Only 60% of rural counties have a public transportation system and 28% of them only service one city. Most users of rural public transport systems are female, elderly, and/or disabled. Although, the majority of carless households are in urban areas, the majority of the counties with over 10% carelessness are in rural counties where Black, Hispanic, or Native American residents make up a higher percentage of the population. 
 
 I think it is important for PyBer to look into grants or another means to lower the cost of rides in rural communities to make transportation more accessible to the women, people of color, the disabled, elderly, and impoverished who are all disproportionately affected by the realities of carelessness in rural America.
 ![ Three Pie Charts of % by type fares, rides, and drivers.](https://github.com/MichelaZ/PyBer_Analysis/blob/main/Resources/analysis/picharts.png)
