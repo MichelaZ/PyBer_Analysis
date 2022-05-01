@@ -58,12 +58,12 @@ pyber_summary_df["Average Fare per Ride"] = pyber_summary_df["Average Fare per R
 pyber_summary_df["Average Fare per Driver"] = pyber_summary_df["Average Fare per Driver"].map('${:,.2f}'.format)
 ```
 ## Deliverable 1: Results
-![ PyBer summary DataFrame](pyber_sum.png)
+![ PyBer summary DataFrame](https://github.com/MichelaZ/PyBer_Analysis/blob/main/Resources/pyber_sum.png)
  
 ##### Urban Cities: 
 Urban cities have the most drivers, rides, and make the most total fares. They have the lowest average fares per ride and driver. 
 I would have liked to see some data on duration of the ride. Cities are more densely populated so places are closer together, so I suspect the mileage and fare per ride to be lower. They also probably have to drive less between fares than suburban or rural drivers. **However, if the driver is stuck in traffic the mileage might not be an accurate measure of value for the driver’s time.** I think this could also be an issue in suburban cities too.
-* *It would be interesting to see if there are areas in each city where rides are originating.* * Then do some research on why this might be. Maybe there are a lot of rides originating in high income neighborhoods, but few in lower income ones. To offset this, you could increase the fare rate in higher income neighborhoods and lower them in more impoverished ones to make them more accessible. Although drivers might have less incentive to service lower income neighborhoods for a lower fare rate, so this could also lead to issues.
+*It would be interesting to see if there are areas in each city where rides are originating.* Then do some research on why this might be. Maybe there are a lot of rides originating in high income neighborhoods, but few in lower income ones. To offset this, you could increase the fare rate in higher income neighborhoods and lower them in more impoverished ones to make them more accessible. Although drivers might have less incentive to service lower income neighborhoods for a lower fare rate, so this could also lead to issues.
 ##### Suburban Cities:
 Suburban cities are in the middle for all data metrics. This makes sense they are less densely populated than cities, but more so than rural ones. They tend to be more car dependent than urban areas, but there is usually more access to public transport than rural areas. This is probably partially because things are more spread out.
 Looking into the availability of public transport in suburban cities would help to determine how to improve accessibility. Look for times of the day or days of the week when the public transportation system isn’t operating or is inadequate for supply and demand. You could advertise more heavily during these times. If you are looking for more money you could raise prices during these times. **If your goal is accessibility, you could lower the price during times when the public transportation system is inadequate and increase the prices when public transport is available.** I think you would have less issues with drivers. The drivers who drive full time will make a higher rate during the day. Assuming the public transportation system has less availability in the evening and weekends there will most likely be more ride requests during these times and your drivers who work elsewhere will have more availability during these times. You would want some further data to back that up.
@@ -81,7 +81,7 @@ An additional data point that would be beneficial to examine is the average trip
 More then 1,000,000 Americans in rural households do not have access to a car. Compared to urban residents, rural residents have much less access to public transportation. Only 60% of rural counties have a public transportation system and 28% of them only service one city. Most users of rural public transport systems are female, elderly, and/or disabled. Although, the majority of carless households are in urban areas, the majority of the counties with over 10% carelessness are in rural counties where Black, Hispanic, or Native American residents make up a higher percentage of the population. 
 
 I think it is important for PyBer to look into grants or another means to lower the cost of rides in rural communities to make transportation more accessible to the women, people of color, the disabled, elderly, and impoverished who are all disproportionately affected by the realities of carelessness in rural America.
-![ Three Pie Charts of % by type fares, rides, and drivers.](picharts.png)
+![ Three Pie Charts of % by type fares, rides, and drivers.](https://github.com/MichelaZ/PyBer_Analysis/blob/main/Resources/analysis/picharts.png)
 *These pie charts were created in the PyBer_ride_data notebook during the module.
 ## Deliverable 2: Method
 1.  First I examined the data from the merged data frame of the city_data and ride_data. Then I used a groupby of the date and time series from the merged data frame to create a new DataFrame to show the sum of the fares.
@@ -89,20 +89,20 @@ I think it is important for PyBer to look into grants or another means to lower 
 pyber_data_df.head()
 df = pyber_data_df.groupby(["date","type"]).sum()["fare"]
 ```
-![ Goupby date and type data frame.](groupby_df.png)
+![ Goupby date and type data frame.](https://github.com/MichelaZ/PyBer_Analysis/blob/main/Resources/groupby_df.png)
 
 2.  I reset the index and created a pivot table where the index was the date, the columns was the city type, and the values were the fare.
 ```
 df = df.reset_index()
 df = pyber_data_df.pivot(index = 'date', columns = 'type', values = 'fare')
 ```
-![ Pivot table DataFrame.](pivot_df.png)
+![ Pivot table DataFrame.](https://github.com/MichelaZ/PyBer_Analysis/blob/main/Resources/pivot_df.png)
 
 3. I used the loc method on the DataFrame with to get rows from 2019-01-01 through 2019-04-28 into a DataFrame.
 ```
 df2 = df.loc["2019-01-01":"2019-04-28"] 
 ```
-![ loc table DataFrame.](loc_df.png)
+![ loc table DataFrame.](https://github.com/MichelaZ/PyBer_Analysis/blob/main/Resources/loc_df.png)
 
 4. I set the date index to a datetime datatype and then used the .index function to verify it worked. I was then able to create a new DataFrame using the resample function to get the sum of fares by week.
 ```
@@ -110,7 +110,7 @@ df2.index = pd.to_datetime(df2.index)
 df2.info()
 df3 = df2.resample('W').sum()
 ```
-![ Resampled DataFrame.](df_resampled.png)
+![ Resampled DataFrame.](https://github.com/MichelaZ/PyBer_Analysis/blob/main/Resources/df_resampled.png)
 
 5. I was then able to create a chart to show the fares by type from January to April. 
 - First I used the MATPLOT method, because I was more familiar with it.
@@ -127,7 +127,7 @@ plt.xlabel("Months")
 plt.savefig("resources/PyBer_fare_summary.png",dpi= 300, bbox_inches='tight')
 plt.show()
 ```
-![ matplot chart.](PyBer_fare_summary.png)
+![ matplot chart.](https://github.com/MichelaZ/PyBer_Analysis/blob/main/Resources/PyBer_fare_summary.png)
 
 - Then I used the object oriented method, but the dates were formatted as weeks so I found some code to convert the x axis labels to months
 
@@ -147,7 +147,7 @@ ax.legend()
 plt.savefig("resources/PyBer_fare_summary5.png",dpi= 300, bbox_inches='tight')
 plt.show()
 ```
-![ matplot chart.](chart_formatting.png)
+![ matplot chart.](https://github.com/MichelaZ/PyBer_Analysis/blob/main/Resources/chart_formatting.png)
 ```
 from matplotlib import dates
 #code to format dates as months: https://stackoverflow.com/questions/67582913/plotting-time-series-in-matplotlib-with-month-names-ex-january-and-showing-ye
@@ -175,14 +175,14 @@ style.use('fivethirtyeight')
 ax.set_title("Total Fare By City Type")
 ax.set_ylabel("Fare ($USD)")
 ax.set_xlabel("Months")
-#setting loc to 10 would put it in center & 0 would be best
-ax.legend(legend, title="type", loc=7)
+#setting loc to 10 would put it in center & 0 would be best, but I prefer 7 top right.
+ax.legend(legend, title="type", loc=10)
 fig.set_size_inches(15,5)
 #save chart
 plt.savefig("resources/PyBer_fare_summary3.png",dpi= 300, bbox_inches='tight')
 plt.show()
 ```
-![ matplot chart.](PyBer_fare_summary3.png)
+![ matplot chart.](https://github.com/MichelaZ/PyBer_Analysis/blob/main/Resources/PyBer_fare_summary3.png)
 
 ## Deliverable 2: Results
 I don’t know if there is enough data to make this chart particularly useful I don’t know if the there is enough data over a long enough period of time. It does look like there might be a slight increase in in rides for urban cities, but not in rural or suburban ones. So maybe the number of available drivers is limiting the ability for growth in these regions. I would do some analysis on the drivers per capita. I would also increase advertising in rural and suburban cities both for recruitment and customers.
